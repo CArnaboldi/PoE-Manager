@@ -1,0 +1,7 @@
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\bin\Debug\PoE Manager.exe
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\bin\Debug\PoE Manager.pdb
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x86\Debug\PoE_Manager.Form1.resources
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x86\Debug\PoE_Manager.Properties.Resources.resources
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x86\Debug\PoE Manager.csproj.GenerateResource.Cache
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x86\Debug\PoE Manager.exe
+c:\users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x86\Debug\PoE Manager.pdb

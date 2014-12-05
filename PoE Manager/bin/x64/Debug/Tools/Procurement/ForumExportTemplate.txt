@@ -1,0 +1,138 @@
+﻿Welcome to my shop! (Last Updated {LastUpdated}),
+
+Please message me here or ingame if something catches your eye. My IGN is {IGN}.
+
+[spoiler="          Uniques          "]
+{Uniques}
+[/spoiler]
+[spoiler="          5-Links          "]
+{5Link}
+[/spoiler]
+[spoiler="          6-Links          "]
+{6Link}
+[/spoiler]
+[spoiler="          Maps          "]
+[spoiler="          Vaal Fragments          "]
+{VaalFragments}
+{VaalUberFragments}
+[/spoiler]
+[spoiler="          66-69          "]
+{66Maps}{67Maps}{68Maps}{69Maps}
+[/spoiler]
+[spoiler="          70-78          "]
+{70Maps}{71Maps}{72Maps}{73Maps}{74Maps}{75Maps}{76Maps}{77Maps}{78Maps}
+[/spoiler]
+[/spoiler]
+[spoiler="          Gems          "]
+[spoiler="          Quality Gems          "]
+[spoiler="          Quality Gems 1-5      "]
+{Quality1Gems}{Quality2Gems}{Quality3Gems}{Quality4Gems}{Quality5Gems}
+[/spoiler]
+[spoiler="          Quality Gems 5-10     "]
+{Quality6Gems}{Quality7Gems}{Quality8Gems}{Quality9Gems}{Quality10Gems}
+[/spoiler]
+[spoiler="          Quality Gems 10-15    "]
+{Quality11Gems}{Quality12Gems}{Quality13Gems}{Quality14Gems}{Quality15Gems}
+[/spoiler]
+[spoiler="          Quality Gems 15-20    "]
+{Quality16Gems}{Quality17Gems}{Quality18Gems}{Quality19Gems}{Quality20Gems}
+[/spoiler]
+[/spoiler]
+[spoiler="          Drop Only Gems          "]
+{DropOnlyGems}
+[/spoiler]
+[spoiler="          Popular Gems          "]
+{PopularGems}
+[/spoiler]
+[spoiler="          Aura Gems          "]
+{AuraGems}
+[/spoiler]
+[spoiler="          Curse Gems          "]
+{CurseGems}
+[/spoiler]
+[spoiler="          Support Gems          "]
+{SupportGems}
+[/spoiler]
+[spoiler="          Leveled Gems          "]
+{Level2Gems}{Level3Gems}{Level4Gems}{Level5Gems}{Level6Gems}{Level7Gems}{Level8Gems}{Level9Gems}{Level10Gems}{Level11Gems}{Level12Gems}{Level13Gems}{Level14Gems}{Level15Gems}{Level16Gems}{Level17Gems}{Level18Gems}{Level19Gems}{Level20Gems}
+[/spoiler]
+[spoiler="          Vaal Gems          "]
+{VaalGems}
+[/spoiler]
+[/spoiler]
+[spoiler="          Dual Res Gear          "]
+{DualRes}
+[/spoiler]
+[spoiler="          Tri Res Gear          "]
+{TripRes}
+[/spoiler]
+[spoiler="          IIR/IIQ Gear          "]
+{MagicFind}
+[/spoiler]
+[spoiler="          Weapons and Armor          "]
+[spoiler="          Armor                                 "]
+[spoiler="          Helms          "]
+{RareHelmet}
+[/spoiler]
+[spoiler="          Amulets          "]
+{RareAmulet}
+[/spoiler]
+[spoiler="          Chest Armor          "]
+{RareChest}
+[/spoiler]
+[spoiler="          Rings          "]
+{RareRing}
+[/spoiler]
+[spoiler="          Belts          "]
+{RareBelt}
+[/spoiler]
+[spoiler="          Boots          "]
+{RareBoots}
+[/spoiler]
+[spoiler="          Gloves          "]
+{RareGloves}
+[/spoiler]
+[/spoiler]
+[spoiler="          Shields          "]
+{RareShield}
+[/spoiler]
+[spoiler="          Swords, Axes & Maces          "]
+{RareSword}
+{RareAxe}
+{RareMace}
+[/spoiler]
+[spoiler="          Daggers          "]
+{RareDagger}
+[/spoiler]
+[spoiler="          Claws          "]
+{RareClaw}
+[/spoiler]
+[spoiler="          Bows  & Quivers          "]
+{RareBow}
+{RareQuiver}
+[/spoiler]
+[spoiler="          Wands, Sceptres & Staves          "]
+{RareWand}
+{RareSceptre}
+{RareStaff}
+[/spoiler]
+[/spoiler]
+[spoiler="          Flasks          "]
+[spoiler="          Normal          "]
+{NormalFlask}
+[/spoiler]
+[spoiler="          Magic          "]
+{MagicFlask}
+[/spoiler]
+[spoiler="          Unique          "]
+{UniqueFlask} 
+[/spoiler]
+[/spoiler]
+[spoiler="          Currency          "]
+{Currency} 
+[/spoiler]
+
+Thanks for visiting!
+
+[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]
+
