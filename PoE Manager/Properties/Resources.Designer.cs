@@ -61,12 +61,42 @@ namespace PoE_Manager.Properties {
         }
         
         /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bottombar {
+            get {
+                object obj = ResourceManager.GetObject("bottombar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
         /// </summary>
         internal static System.Drawing.Icon poe_icon {
             get {
                 object obj = ResourceManager.GetObject("poe_icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap topbar {
+            get {
+                object obj = ResourceManager.GetObject("topbar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap topbar_long {
+            get {
+                object obj = ResourceManager.GetObject("topbar_long", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

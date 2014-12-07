@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Drawing;
 
 namespace PoE_Manager
 {
@@ -26,6 +27,7 @@ namespace PoE_Manager
         public static Dictionary<string, bool> Autolaunch { get { return _autolaunch; } set { _autolaunch = value; } }
 
         public static bool StartHidden { get { return _startHidden; } set { _startHidden = value; } }
+        public static Point Location { get { return _location; } set { _location = value; } }
 
         private static string _poeFullPath = "";
         private static string _poePath = "";
@@ -33,6 +35,7 @@ namespace PoE_Manager
         private static string _poeTradePath = "";
         private static Dictionary<string,bool> _autolaunch = new Dictionary<string,bool>();
         private static bool _startHidden = false;
+        private static Point _location;
 
         public static void save()
         {
@@ -42,7 +45,7 @@ namespace PoE_Manager
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
 
-                    Tuple<string, string, Dictionary<string, bool>, bool> managerInfo = new Tuple<string, string, Dictionary<string, bool>, bool>(_poeFullPath, _poeTradePath, _autolaunch, _startHidden);
+                    Tuple<string, string, Dictionary<string, bool>, bool, Point> managerInfo = new Tuple<string, string, Dictionary<string, bool>, bool, Point>(_poeFullPath, _poeTradePath, _autolaunch, _startHidden, _location);
 
                     formatter.Serialize(file, managerInfo);
                 }
@@ -57,7 +60,7 @@ namespace PoE_Manager
                 using (FileStream file = new FileStream(Generic.settingsFile, FileMode.Open, FileAccess.Read))
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
-                    Tuple<string, string, Dictionary<string, bool>, bool> managerInfo = (Tuple<string, string, Dictionary<string, bool>, bool>)formatter.Deserialize(file);
+                    Tuple<string, string, Dictionary<string, bool>, bool, Point> managerInfo = (Tuple<string, string, Dictionary<string, bool>, bool, Point>)formatter.Deserialize(file);
 
                     _poeFullPath = managerInfo.Item1;
 
@@ -68,6 +71,7 @@ namespace PoE_Manager
                     _poeTradePath = managerInfo.Item2;
                     _autolaunch = managerInfo.Item3;
                     _startHidden = managerInfo.Item4;
+                    _location = managerInfo.Item5;
 
                     if (_poeFullPath != null && _autolaunch != null) return true;
                 }

@@ -14,4 +14,6 @@ C:\Users\y3k\Documents\Visual Studio 2010\Projects\PoE Manager - Copy (2)\PoE Ma
 C:\Users\y3k\Documents\Visual Studio 2010\Projects\PoE Manager - Copy (2)\PoE Manager\obj\x64\Debug\PoE_Manager.Properties.Resources.resources
 C:\Users\y3k\Documents\Visual Studio 2010\Projects\PoE Manager - Copy (2)\PoE Manager\obj\x64\Debug\PoE Manager.csproj.GenerateResource.Cache
 C:\Users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x64\Debug\PoE_Manager.InputPoeTradeAddressFrm.resources
+C:\Users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x64\Debug\PoE_Manager.HelpFrm.resources
 C:\Users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x64\Debug\PoE Manager.csprojResolveAssemblyReference.cache
+C:\Users\y3k\documents\visual studio 2010\Projects\PoE Manager\PoE Manager\obj\x64\Debug\PoE_Manager.YesNoFrm.resources

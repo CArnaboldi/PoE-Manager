@@ -2,7 +2,7 @@
 #NoEnv
 SetBatchLines, -1
 
-F2::
+F3::
 IfWinActive, Path of Exile
 {
 WinActivate

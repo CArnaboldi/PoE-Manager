@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace PoE_Manager
 {
@@ -71,6 +72,7 @@ namespace PoE_Manager
                     dlg_poe_path.ShowDialog();
 
                     _poeTradeAddressFrm = new InputPoeTradeAddressFrm();
+
                     //necessary to show _poeTradeAddressFrm on top of other forms
                     this.AddOwnedForm(_poeTradeAddressFrm);
 
@@ -89,12 +91,15 @@ namespace PoE_Manager
 
                         Dictionary<string, bool> autolaunch = new Dictionary<string, bool>();
 
-                        autolaunch.Add(Generic.Procurement, false);
-                        autolaunch.Add(Generic.AutoOnline, false);
-                        autolaunch.Add(Generic.Helper, false);
-                        autolaunch.Add(Generic.Poe, false);
+                        autolaunch.Add(Generic.Procurement_TAG, false);
+                        autolaunch.Add(Generic.AutoOnline_TAG, false);
+                        autolaunch.Add(Generic.Helper_TAG, false);
+                        autolaunch.Add(Generic.Poe_TAG, false);
 
                         SettingsManager.Autolaunch = autolaunch;
+
+                        this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - this.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2 - this.Height / 2);
+                        SettingsManager.Location = this.Location;
 
                         SettingsManager.save();
 
@@ -114,10 +119,10 @@ namespace PoE_Manager
 
                     _apps = new Dictionary<string, IStatus>();
 
-                    _apps.Add(Generic.Poe, (new AppStatus(SettingsManager.PoeExeName, SettingsManager.PoePath, btn_poe_start, btn_poe_stop, lbl_poe_status)));
-                    _apps.Add(Generic.Procurement, (new AppStatus("Procurement", "Procurement", btn_procurement_start, btn_procurement_stop, lbl_procurement_status)));
-                    _apps.Add(Generic.Helper, (new AppStatus("Helper", "Helper", btn_helper_start, btn_helper_stop, lbl_helper_status)));
-                    _apps.Add(Generic.AutoOnline, (new AutoOnlineStatus(btn_autoonline_start, btn_autoonline_stop, lbl_autoonline_status, (AppStatus)_apps[Generic.Poe])));
+                    _apps.Add(Generic.Poe_TAG, (new AppStatus(SettingsManager.PoeExeName, SettingsManager.PoePath, lbl_poe_status, btn_poe_start, btn_poe_stop, btn_poe_minimize)));
+                    _apps.Add(Generic.Procurement_TAG, (new AppStatus("Procurement", "Procurement", lbl_procurement_status, btn_procurement_start, btn_procurement_stop, btn_procurement_minimize)));
+                    _apps.Add(Generic.Helper_TAG, (new AppStatus("Helper", "Helper", lbl_helper_status, btn_helper_start, btn_helper_stop)));
+                    _apps.Add(Generic.AutoOnline_TAG, (new AutoOnlineStatus(btn_autoonline_start, btn_autoonline_stop, lbl_autoonline_status, (AppStatus)_apps[Generic.Poe_TAG])));
 
 
                     //autolaunch selected apps
@@ -129,9 +134,11 @@ namespace PoE_Manager
                     }
 
                     _mainFrmVisible = !SettingsManager.StartHidden;
-
+                    
                     //apply style / check selected autolaunch check buttons / check start hidden button
                     Generic.initStyle(this);
+
+                    this.Location = SettingsManager.Location;
 
                     try
                     {
@@ -154,20 +161,15 @@ namespace PoE_Manager
             }
         }
 
-        private void inputPoeTradeAddress()
-        {
-            
-        }
-
         private void toggleVisibility()
         {
             if (_mainFrmVisible)
             {
-                //hide the form
-                _mainFrmVisible = false;
+                    //I hide the form
+                    _mainFrmVisible = false;
 
-                //I refresh visibility
-                this.Visible = true;
+                    //I refresh visibility
+                    this.Visible = true;
             }
             else
             {
@@ -176,48 +178,59 @@ namespace PoE_Manager
 
                 //I refresh visibility
                 this.Visible = true;
+
             }
         }
 
 
         private void btn_procurement_start_Click(object sender, EventArgs e)
         {
-            _apps[Generic.Procurement].startApp();
+            _apps[Generic.Procurement_TAG].startApp();
         }
 
         private void btn_procurement_stop_Click(object sender, EventArgs e)
         {
-            _apps[Generic.Procurement].stopApp();
+            _apps[Generic.Procurement_TAG].stopApp();
+        }
+
+        private void btn_procurement_minimize_Click(object sender, EventArgs e)
+        {
+            ((AppStatus) _apps[Generic.Procurement_TAG]).minimizeApp();
         }
 
         private void btn_autoonline_start_Click(object sender, EventArgs e)
         {
-            _apps[Generic.AutoOnline].startApp();
+            _apps[Generic.AutoOnline_TAG].startApp();
         }
 
         private void btn_autoonline_stop_Click(object sender, EventArgs e)
         {
-            _apps[Generic.AutoOnline].stopApp();
+            _apps[Generic.AutoOnline_TAG].stopApp();
         }
 
         private void btn_helper_start_Click(object sender, EventArgs e)
         {
-            _apps[Generic.Helper].startApp();
+            _apps[Generic.Helper_TAG].startApp();
         }
 
         private void btn_helper_stop_Click(object sender, EventArgs e)
         {
-            _apps[Generic.Helper].stopApp();
+            _apps[Generic.Helper_TAG].stopApp();
         }
 
         private void btn_poe_start_Click(object sender, EventArgs e)
         {
-            _apps[Generic.Poe].startApp();
+            _apps[Generic.Poe_TAG].startApp();
         }
 
         private void btn_poe_stop_Click(object sender, EventArgs e)
         {
-            _apps[Generic.Poe].stopApp();
+            _apps[Generic.Poe_TAG].stopApp();
+        }
+
+        private void btn_poe_minimize_Click(object sender, EventArgs e)
+        {
+            ((AppStatus)_apps[Generic.Poe_TAG]).minimizeApp();
         }
 
         private void chk_procurement_autolaunch_CheckedChanged(object sender, EventArgs e)
@@ -246,42 +259,38 @@ namespace PoE_Manager
         }
 
         //terminate all status update checker threads when app is closed
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
             foreach (KeyValuePair<string, IStatus> app in _apps)
             {
-                ((IStatus) app.Value).destroy();
+                ((IStatus)app.Value).destroy();
             }
-        }
-
-        private void lbl_close_MouseEnter(object sender, EventArgs e)
-        {
-            ((Label)sender).BackColor = Generic.mouseEnterButtonColor;
-        }
-
-        private void lbl_close_MouseLeave(object sender, EventArgs e)
-        {
-            ((Label)sender).BackColor = Generic.buttonBackColor;
-        }
-
-        private void lbl_clear_MouseEnter(object sender, EventArgs e)
-        {
-            ((Label)sender).BackColor = Generic.mouseEnterButtonColor;
-        }
-
-        private void lbl_clear_MouseLeave(object sender, EventArgs e)
-        {
-            ((Label)sender).BackColor = Generic.buttonBackColor;
         }
 
         private void lbl_close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            YesNoFrm yesNoFrm = new YesNoFrm(this, "Quit PoE Manager", "Are you sure?");
+
+            yesNoFrm.ShowDialog();
+
+            if (yesNoFrm.Confirm)
+                this.Close();
+           
+        }
+
+        private void lbl_help_Click(object sender, EventArgs e)
+        {
+            (new HelpFrm(this)).ShowDialog();
+
         }
 
         private void lbl_clear_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Clear all settings and quit PoE Manager?", "Clear all settings and quit PoE Manager?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            YesNoFrm yesNoFrm = new YesNoFrm(this, "Clear settings", "Clear all settings and quit PoE Manager?");
+
+            yesNoFrm.ShowDialog();
+            
+            if (yesNoFrm.Confirm)
             {
                 SettingsManager.delete();
                 this.Close();
@@ -304,6 +313,72 @@ namespace PoE_Manager
             if (e.KeyChar == (char) Keys.Enter)
                 btn_poe_wiki_search.PerformClick();
         }
+
+        private void btn_poe_trade_search_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://poe.trade");
+        }
+
+        private void lbl_close_MouseEnter(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Generic.mouseEnterButtonColor;
+        }
+
+        private void lbl_close_MouseLeave(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Generic.buttonBackColor;
+        }
+
+        private void lbl_clear_MouseEnter(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Generic.mouseEnterButtonColor;
+        }
+
+        private void lbl_clear_MouseLeave(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Generic.buttonBackColor;
+        }
+
+        private void lbl_help_MouseEnter(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Generic.mouseEnterButtonColor;
+        }
+
+        private void lbl_help_MouseLeave(object sender, EventArgs e)
+        {
+            ((Label)sender).BackColor = Generic.buttonBackColor;
+        }
+
+        #region LeftClickResize
+
+        //handles the pressing of right mouse button on the textbox to move the form
+        private void lbl_topbar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+
+        }
+
+        private void MainFrm_Move(object sender, EventArgs e)
+        {
+            SettingsManager.Location = this.Location;
+            SettingsManager.save();
+        }
+
+        //modifiers to move the form while holding the left mouse button in the insertion textbox
+        public static readonly int WM_NCLBUTTONDOWN = 0xA1;
+        public static readonly int HTCAPTION = 0x2;
+
+        //methods required to move the form while holding the left mouse button in the insertion textbox
+        [DllImport("User32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        #endregion
 
     }
 }

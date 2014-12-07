@@ -86,6 +86,12 @@
     <Compile Include="Generic.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="GlobalHotkey.cs" />
+    <Compile Include="HelpFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpFrm.Designer.cs">
+      <DependentUpon>HelpFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputPoeTradeAddressFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SettingsManager.cs" />
+    <Compile Include="YesNoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YesNoFrm.Designer.cs">
+      <DependentUpon>YesNoFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HelpFrm.resx">
+      <DependentUpon>HelpFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputPoeTradeAddressFrm.resx">
       <DependentUpon>InputPoeTradeAddressFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +132,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YesNoFrm.resx">
+      <DependentUpon>YesNoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,6 +148,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\poe_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottombar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topbar_long.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
