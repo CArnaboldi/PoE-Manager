@@ -49,6 +49,7 @@
   <UserSettings>
     <Setting name="AccountLogin" value="" />
     <Setting name="AccountPassword" value="" />
+    <Setting name="AccountName" value="" />
     <Setting name="UseSessionID" value="false" />
     <Setting name="FavoriteLeague" value="" />
     <Setting name="FavoriteCharacter" value="" />
@@ -60,6 +61,8 @@
     <Setting name="BuyoutItemsOnlyVisibleInBuyoutsTag" value="False" />
     <Setting name="OnlyDisplayBuyouts" value="false" />
     <Setting name="CheckForUpdates" value="True" />
+    <Setting name="PoeTradeRefreshEnabled" value="false" />
+    <Setting name="PoeTradeRefreshUrl" value="" />
   </UserSettings>
   <ProxySettings>
     <Setting name="Enabled" value="False" />
@@ -70,13 +73,15 @@
   <ShopSettings>
     <Shop League="Standard" ThreadId="" ThreadTitle="" />
     <Shop League="Hardcore" ThreadId="" ThreadTitle="" />
-    <Shop League="Beyond" ThreadId="" ThreadTitle="" />
-    <Shop League="Rampage" ThreadId="" ThreadTitle="" />
+    <Shop League="Bloodlines" ThreadId="" ThreadTitle="" />
+    <Shop League="Torment" ThreadId="" ThreadTitle="" />
   </ShopSettings>
   <Lists>
     <List name="MyLeagues">
       <Item value="Standard" />
       <Item value="Hardcore" />
+      <Item value="Torment" />
+      <Item value="Bloodlines" />
     </List>
     <List name="MyTabs">
       <!--If you only want Procurement to download specific tabs list them here, eg :-->
